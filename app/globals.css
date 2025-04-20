@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Core design tokens */
+    --font-size-multiplier: 100%;
+    --contrast-multiplier: 100%;
+    
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 336 80% 58%;
+    --primary-foreground: 210 40% 98%;
+    --primary-rgb: 227, 55, 137;
+
+    --secondary: 336 50% 95%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 336 25% 95%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 336 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-muted: 215.4 16.3% 56.9%;
+    --sidebar-accent: 336 40% 96%;
+
+    --border: 336 20% 87%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 336 80% 58%;
+
+    --radius: 0.5rem;
+
+    /* Timeline colors */
+    --timeline-background: 336 80% 98%;
+    --timeline-line: 336 80% 90%;
+
+    /* Calendar colors */
+    --calendar-today: 336 80% 58%;
+    --calendar-selected: 336 80% 58%;
+    --calendar-highlight: 336 70% 96%;
+
+    /* Medication card colors */
+    --medication-card-border: 336 80% 90%;
+    --medication-warning: 38 92% 50%;
+    --medication-success: 142.1 76.2% 36.3%;
+  }
+  .dark {
+    --background: 240 21% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 19% 16%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 19% 16%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 336 80% 58%;
+    --primary-foreground: 210 40% 98%;
+    --primary-rgb: 227, 55, 137;
+
+    --secondary: 336 40% 25%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 19% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 336 30% 25%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --sidebar: 240 24% 13%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-muted: 215 20.2% 65.1%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+
+    --border: 240 14% 22%;
+    --input: 240 14% 22%;
+    --ring: 336 80% 58%;
+
+    /* Timeline colors */
+    --timeline-background: 240 19% 14%;
+    --timeline-line: 240 10% 24%;
+
+    /* Calendar colors */
+    --calendar-today: 336 80% 58%;
+    --calendar-selected: 336 80% 58%;
+    --calendar-highlight: 336 25% 20%;
+
+    /* Medication card colors */
+    --medication-card-border: 240 10% 24%;
+    --medication-warning: 38 92% 50%;
+    --medication-success: 142.1 76.2% 36.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Grid pattern background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(var(--primary-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--primary-rgb), 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px);
+  }
+}
+
+/* 3D perspective effects */
+.perspective {
+  perspective: 1000px;
+}
+
+/* Timeline styling */
+.timeline-container {
+  @apply relative border-l border-gray-200 dark:border-gray-700 pl-4 ml-4 mb-4;
+}
+
+.timeline-dot {
+  @apply absolute -left-1.5 w-3 h-3 rounded-full bg-primary border-2 border-white dark:border-gray-800;
+}
+
+.timeline-event {
+  @apply mb-8;
+}
+
+.timeline-content {
+  @apply p-3 bg-accent rounded-md border border-accent;
+}
+
+/* Calendar styling */
+.calendar-grid {
+  @apply grid grid-cols-7 gap-1;
+}
+
+.calendar-day {
+  @apply p-2 text-center rounded-md hover:bg-accent transition-colors;
+}
+
+.calendar-day-header {
+  @apply text-xs font-medium text-muted-foreground;
+}
+
+.calendar-day.other-month {
+  @apply text-muted-foreground;
+}
+
+.calendar-day.today {
+  @apply bg-primary text-primary-foreground font-bold;
+}
+
+.calendar-day.has-events {
+  @apply border-b-2 border-primary;
+}
+
+/* Medication card styling */
+.medication-card {
+  @apply flex items-center p-4 rounded-lg border hover:shadow-md transition-all;
+}
+
+.medication-icon {
+  @apply rounded-full p-3 text-white bg-primary mr-4;
+}
+
+.adherence-indicator {
+  @apply ml-auto w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold border-4;
+}
+
+.adherence-high {
+  @apply border-green-500 text-green-600;
+}
+
+.adherence-medium {
+  @apply border-yellow-500 text-yellow-600;
+}
+
+.adherence-low {
+  @apply border-red-500 text-red-600;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Accessibility styles */
+html {
+  font-size: calc(16px * var(--font-size-multiplier) / 100);
+}
+
+.high-contrast {
+  --primary: 336 100% 45%;
+  --accent: 336 50% 85%;
+  --border: 336 30% 75%;
+  --muted-foreground: 215.4 30% 30%; 
+  --background: 0 0% 98%;
+  --foreground: 222.2 100% 2%;
+}
+
+.dark.high-contrast {
+  --primary: 336 100% 65%;
+  --accent: 336 50% 15%;
+  --border: 336 30% 35%;
+  --muted-foreground: 215.4 30% 80%;
+  --background: 240 25% 7%;
+  --foreground: 210 100% 98%;
+}
