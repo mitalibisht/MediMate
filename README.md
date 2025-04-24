@@ -1,5 +1,5 @@
 # Medimate
-The Medical Dose Tracker is a web and mobile app that enables users to schedule medicines, receive reminders, and monitor history. The system will feature personalized reminders, dose history, prescription management, and reports to be shared with medical experts.
+The Medical Dose Tracker is a web application that enables users to schedule medicines, receive reminders, and monitor history. The system will feature personalized reminders, dose history, prescription management, and reports to be shared with medical experts.
 
 It is difficult to keep track of medicine schedules in today's fast-paced world, particularly for chronic patients, geriatric patients, or multi-prescription patients. A Medical Dose Tracker is a software tool that helps users take medicine on time, monitors their dose history, and reminds them at the right time. This project intends to create a simple, user-friendly application that ensures better compliance with prescribed medicine schedules, which ultimately leads to improved health.
 
